@@ -1,0 +1,15 @@
+locals {
+  catalogue_sg_id = data.aws_ssm_parameter.catalogue_sg_id.value
+  sg_id = data.aws_ssm_parameter.sg_id.value
+  tg_port = var.component == "frontend" ? 80 : 8080
+  private_subnet_ids = split("," , data.aws_ssm_parameter.private_subnet_ids.value)
+  ami_id = data.aws_ami.krishna.id
+  vpc_id = data.aws_ssm_parameter.vpc_id.value
+  backend_alb_listner_arn = data.aws_ssm_parameter.backend_alb_listner_arn.value
+  common_name_suffix = "${var.project_name}-${var.environment}"
+   common_tags = {
+    Project     = var.project_name
+    Environment = var.environment
+    Terraform   = "true"
+  }
+}
