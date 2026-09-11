@@ -58,7 +58,7 @@ resource "aws_ami_from_instance" "main" {
 }
 
 resource "aws_lb_target_group" "main" {
-  name     = "${local.common_name_suffix}${var.component}"
+  name     = "${local.common_name_suffix}-${var.component}"
   port     = local.tg_port #if frontend port is 80 for backend it is 8080
   protocol = "HTTP"
   vpc_id   = local.vpc_id
