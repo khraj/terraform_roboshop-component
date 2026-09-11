@@ -34,3 +34,8 @@ data "aws_ssm_parameter" "backend_alb_listner_arn" {
 data "aws_ssm_parameter" "frontend_alb_listner_arn" {
   name = "/${var.project_name}/${var.environment}/frontend_alb_listner_arn"
 }
+
+data "aws_ssm_parameter" "private_subnet_ids" {
+  name = "/${var.project_name}/${var.environment}/private_subnet_ids"
+}
+

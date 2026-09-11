@@ -10,6 +10,7 @@ variable "environment" {
 
 variable "domain_name" {
   type = string
+  default = "inkweave.dpdns.org"
 }
 
 variable "component" {

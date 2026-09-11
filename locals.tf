@@ -10,7 +10,6 @@ locals {
   frontend_alb_listner_arn = data.aws_ssm_parameter.frontend_alb_listner_arn.value
   listner_arn = var.component == "frontend" ? local.frontend_alb_listner_arn : local.backend_alb_listner_arn
   host_context = var.component == "frontend" ? "${var.project_name}-${var.environment}${var.domain_name}" : "${var.component}.backend-alb.${var.environment}${var.domain_name}"
-  
   common_name_suffix = "${var.project_name}-${var.environment}"
    common_tags = {
     Project     = var.project_name
