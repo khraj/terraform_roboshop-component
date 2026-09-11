@@ -95,7 +95,7 @@ resource "aws_launch_template" "main" {
     tags = merge(
     local.common_tags,
     {
-      Name = "${local.common_name_suffix}-catalogue"
+      Name = "${local.common_name_suffix}-${var.component}"
     }
   )
   }
