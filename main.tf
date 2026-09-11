@@ -207,7 +207,7 @@ resource "terraform_data" "this" {
   depends_on = [ aws_autoscaling_policy.main]
 
   provisioner "local-exec" {
-    command = "aws ec2 terminate-instance --instance-ids ${aws_instance.main.id}"
+    command = "aws ec2 terminate-instances --instance-ids ${aws_instance.main.id}"
   }
 
 }
